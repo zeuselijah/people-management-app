@@ -1,13 +1,55 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+// Variables
+
+$main-color: black;
+$contrast-color: white;
+$main-font: Helvetica;
+
+// Mixins aka Preset Styles
+@mixin flex-container-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@mixin white-text-black-bg {
+  font-family: $main-font;
+  color: $contrast-color;
+  background-color: $main-color;
+}
+
+@mixin black-text-white-bg {
+  color: $main-color;
+  background-color: $contrast-color;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.nav {
+  @include white-text-black-bg;
+  @include flex-container-centered;
+  a {
+    @include white-text-black-bg;
+    text-decoration: none;
+    div {
+      margin: 1rem;
+      font-size: x-large;
+    }
+  }
+}
+
+.avatar-image {
+  height: 12.5rem;
+  width: 12.5rem;
+  
+}
+@media (min-width: 768px) {
+  .nav {
+    justify-content: flex-start;
+  }
 }
